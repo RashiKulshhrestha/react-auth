@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import "./login.css";
 
 class Login extends Component {
@@ -15,12 +16,14 @@ class Login extends Component {
     });
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = () => {
     if (
       this.state.username === "admin" &&
       this.state.password === "admin@123"
     ) {
-      alert("Login Sucessfully");
+      return <Redirect to="/todo" />;
+    } else {
+      alert("Invalid Credentials");
     }
   };
   render() {
